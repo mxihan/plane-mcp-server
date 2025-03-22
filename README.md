@@ -15,11 +15,26 @@ A Model Context Protocol (MCP) server that enables LLMs to interact with [Plane.
 
 ## Prerequisites
 
-- Node.js 16.x or higher
+- Node.js 22.x or higher
 - A Plane.so API key
 - A Plane.so workspace
 
-## Setup
+## Installation
+
+### Option 1: Using Smithery
+
+The quickest way to get started is to use Smithery to install the server directly:
+
+```bash
+# Install to Claude for Desktop
+npx -y @smithery/cli install @kelvin6365/plane-mcp-server --client claude
+```
+
+This command will automatically set up the Plane MCP Server for use with Claude. After installation, you'll need to configure the server with your Plane API key and workspace slug through the Claude settings.
+
+### Option 2: Manual Setup
+
+If you prefer to set up the server manually, follow these steps:
 
 1. Clone this repository:
 
@@ -34,14 +49,7 @@ cd plane-mcp-server
 npm install
 ```
 
-3. Create a `.env` file in the root directory with your Plane API credentials:
-
-```
-PLANE_API_KEY=your_plane_api_key_here
-PLANE_WORKSPACE_SLUG=your_workspace_slug_here
-```
-
-4. Build the server:
+3. Build the server:
 
 ```bash
 npm run build
