@@ -32,6 +32,14 @@ npx -y @smithery/cli install @kelvin6365/plane-mcp-server --client claude
 
 This command will automatically set up the Plane MCP Server for use with Claude. After installation, you'll need to configure the server with your Plane API key and workspace slug through the Claude settings.
 
+Valid client options are: claude, cline, windsurf, roo-cline, witsy, enconvo, cursor
+
+Example for installing with Cursor:
+
+```bash
+npx -y @smithery/cli install @kelvin6365/plane-mcp-server --client cursor
+```
+
 ### Option 2: Manual Setup
 
 If you prefer to set up the server manually, follow these steps:
