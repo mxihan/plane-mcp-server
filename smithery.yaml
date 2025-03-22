@@ -1,27 +1,7 @@
 startCommand:
   type: stdio
-  configSchema:
-    type: object
-    properties:
-      planeApiKey:
-        type: string
-        description: "API key for Plane.so"
-      workspaceSlug:
-        type: string
-        description: "Workspace slug for your Plane.so workspace"
-    required: ["planeApiKey", "workspaceSlug"]
+  configSchema: {}
   commandFunction: |
-    function getCommand(config) {
-      return {
-        command: "node",
-        args: ["dist/index.js"],
-        env: {
-          PLANE_API_KEY: config.planeApiKey,
-          PLANE_WORKSPACE_SLUG: config.workspaceSlug
-        }
-      };
-    }
-
-build:
-  dockerfile: "./Dockerfile"
-  dockerBuildPath: "./"
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({command: 'node', args: ['dist/index.js'], env: {}})
