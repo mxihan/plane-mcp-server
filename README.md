@@ -1,4 +1,5 @@
 # Plane MCP Server
+
 [![smithery badge](https://smithery.ai/badge/@kelvin6365/plane-mcp-server)](https://smithery.ai/server/@kelvin6365/plane-mcp-server)
 
 A Model Context Protocol (MCP) server that enables LLMs to interact with [Plane.so](https://plane.so), allowing them to manage projects and issues through Plane's API. Using this server, LLMs like Claude can directly interact with your project management workflows while maintaining user control and security.
@@ -250,3 +251,7 @@ If you encounter any issues or have questions:
 1. Check the GitHub Issues section
 2. Consult the MCP documentation at [modelcontextprotocol.io](https://modelcontextprotocol.io)
 3. Open a new issue with detailed reproduction steps
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=kelvin6365/plane-mcp-server&type=Date)](https://www.star-history.com/#kelvin6365/plane-mcp-server&Date)
