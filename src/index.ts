@@ -272,7 +272,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
 // Register handler for calling tools
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   try {
-    const { name, arguments: args = {} } = request.params;
+    let { name, arguments: args = {} } = request.params;
+
+    // Normalize tool name to handle both hyphen and underscore formats
+    const normalizedName = name.replace(/_/g, "-");
+    name = normalizedName;
 
     switch (name) {
       case "list-projects": {
