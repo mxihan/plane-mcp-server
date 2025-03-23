@@ -136,6 +136,8 @@ Parameters:
 - `state_id` (optional): ID of the state for this issue
 - `assignees` (optional): Array of user IDs to assign to this issue
 
+> **Note:** The `assignees` parameter must be an array of user ID strings. Common errors include providing a dictionary/object instead of an array, or accidentally nesting the entire issue data inside the assignees field. The server will attempt to handle these cases, but it's best to use the correct format.
+
 Example:
 
 ```json
@@ -143,7 +145,8 @@ Example:
   "project_id": "01abc123-4567-89de-0123-456789abcdef",
   "name": "Implement new feature",
   "description": "We need to implement the new reporting feature",
-  "priority": "high"
+  "priority": "high",
+  "assignees": ["user-id-1", "user-id-2"]
 }
 ```
 
@@ -200,6 +203,8 @@ Parameters:
 - `priority` (optional): Updated priority of the issue
 - `state_id` (optional): Updated state ID of the issue
 - `assignees` (optional): Updated array of user IDs to assign to this issue
+
+> **Note:** The `assignees` parameter must be an array of user ID strings, following the same format guidelines as the create-issue tool.
 
 Example:
 

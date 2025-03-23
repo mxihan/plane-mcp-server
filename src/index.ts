@@ -300,6 +300,32 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           throw new Error("Project ID is required");
         }
         const { project_id, ...issueData } = args;
+
+        // Ensure assignees is properly formatted as an array
+        if (issueData.assignees) {
+          // Special case: detect if entire issue is nested in assignees
+          if (
+            typeof issueData.assignees === "object" &&
+            !Array.isArray(issueData.assignees) &&
+            (issueData.assignees as Record<string, any>).project_id &&
+            (issueData.assignees as Record<string, any>).name
+          ) {
+            // Issue is nested inside assignees, remove it completely
+            delete issueData.assignees;
+          } else if (!Array.isArray(issueData.assignees)) {
+            if (typeof issueData.assignees === "string") {
+              // Convert single string to array
+              issueData.assignees = [issueData.assignees];
+            } else if (typeof issueData.assignees === "object") {
+              // Convert object to array of values
+              issueData.assignees = Object.values(issueData.assignees);
+            } else {
+              // Remove invalid assignees
+              delete issueData.assignees;
+            }
+          }
+        }
+
         const issue = await callPlaneAPI(
           `/projects/${project_id}/issues/`,
           "POST",
@@ -362,6 +388,32 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           throw new Error("Project ID and Issue ID are required");
         }
         const { project_id, issue_id, ...updateData } = args;
+
+        // Ensure assignees is properly formatted as an array
+        if (updateData.assignees) {
+          // Special case: detect if entire issue is nested in assignees
+          if (
+            typeof updateData.assignees === "object" &&
+            !Array.isArray(updateData.assignees) &&
+            (updateData.assignees as Record<string, any>).project_id &&
+            (updateData.assignees as Record<string, any>).name
+          ) {
+            // Issue is nested inside assignees, remove it completely
+            delete updateData.assignees;
+          } else if (!Array.isArray(updateData.assignees)) {
+            if (typeof updateData.assignees === "string") {
+              // Convert single string to array
+              updateData.assignees = [updateData.assignees];
+            } else if (typeof updateData.assignees === "object") {
+              // Convert object to array of values
+              updateData.assignees = Object.values(updateData.assignees);
+            } else {
+              // Remove invalid assignees
+              delete updateData.assignees;
+            }
+          }
+        }
+
         const updatedIssue = await callPlaneAPI(
           `/projects/${project_id}/issues/${issue_id}/`,
           "PATCH",
