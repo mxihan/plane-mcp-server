@@ -133,7 +133,7 @@ Parameters:
 
 - `project_id`: ID of the project where the issue should be created
 - `name`: Title of the issue
-- `description` (optional): Detailed description of the issue
+- `description_html`: HTML description of the issue (required by Plane API)
 - `priority` (optional): Priority of the issue ("urgent", "high", "medium", "low", "none")
 - `state_id` (optional): ID of the state for this issue
 - `assignees` (optional): Array of user IDs to assign to this issue
@@ -146,7 +146,7 @@ Example:
 {
   "project_id": "01abc123-4567-89de-0123-456789abcdef",
   "name": "Implement new feature",
-  "description": "We need to implement the new reporting feature",
+  "description_html": "<p>We need to implement the new reporting feature</p>",
   "priority": "high",
   "assignees": ["user-id-1", "user-id-2"]
 }
@@ -201,7 +201,7 @@ Parameters:
 - `project_id`: ID of the project containing the issue
 - `issue_id`: ID of the issue to update
 - `name` (optional): Updated title of the issue
-- `description` (optional): Updated description of the issue
+- `description_html` (optional): HTML description of the issue (required by Plane API)
 - `priority` (optional): Updated priority of the issue
 - `state_id` (optional): Updated state ID of the issue
 - `assignees` (optional): Updated array of user IDs to assign to this issue
@@ -215,7 +215,7 @@ Example:
   "project_id": "01abc123-4567-89de-0123-456789abcdef",
   "issue_id": "01def456-7890-12gh-3456-789ijklmnopq",
   "priority": "urgent",
-  "description": "Updated description with more details"
+  "description_html": "<p>Updated description with <strong>more details</strong></p>"
 }
 ```
 

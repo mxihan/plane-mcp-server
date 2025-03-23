@@ -66,9 +66,9 @@ const CREATE_ISSUE_TOOL: Tool = {
         type: "string",
         description: "Title of the issue",
       },
-      description: {
+      description_html: {
         type: "string",
-        description: "Detailed description of the issue",
+        description: "HTML description of the issue (required by Plane API)",
       },
       priority: {
         type: "string",
@@ -161,9 +161,9 @@ const UPDATE_ISSUE_TOOL: Tool = {
         type: "string",
         description: "Updated title of the issue (optional)",
       },
-      description: {
+      description_html: {
         type: "string",
-        description: "Updated description of the issue (optional)",
+        description: "HTML description of the issue (required by Plane API)",
       },
       priority: {
         type: "string",
