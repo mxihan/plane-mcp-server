@@ -69,6 +69,8 @@ npm run build
 
 ## Usage with Claude for Desktop
 
+> **Note:** If you used Option 1 (Smithery) above, you can skip this section. Smithery automatically configures the MCP server for you.
+
 1. Open your Claude for Desktop configuration file:
 
    - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
