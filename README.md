@@ -282,15 +282,3 @@ If you encounter any issues or have questions:
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=kelvin6365/plane-mcp-server&type=Date)](https://www.star-history.com/#kelvin6365/plane-mcp-server&Date)
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Unknown tool error**
-
-   Error: `Unknown tool: list_projects`
-
-   Solution: Tool names use hyphens, not underscores. Use `list-projects` instead of `list_projects`. As of the latest version, the server will automatically convert underscores to hyphens.
-
-2. **Invalid assignees format**
