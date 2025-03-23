@@ -4,6 +4,10 @@
 
 A Model Context Protocol (MCP) server that enables LLMs to interact with [Plane.so](https://plane.so), allowing them to manage projects and issues through Plane's API. Using this server, LLMs like Claude can directly interact with your project management workflows while maintaining user control and security.
 
+<a href="https://glama.ai/mcp/servers/@kelvin6365/plane-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@kelvin6365/plane-mcp-server/badge" />
+</a>
+
 ## Features
 
 - List all projects in your Plane workspace
