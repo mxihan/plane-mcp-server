@@ -231,7 +231,7 @@ npm run dev
 You can test the server using the MCP Inspector:
 
 ```bash
-npx @modelcontextprotocol/inspector node build/index.js
+npx @modelcontextprotocol/inspector node dist/index.js
 ```
 
 ## Examples
