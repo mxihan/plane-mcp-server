@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/kelvin6365-plane-mcp-server-badge.png)](https://mseep.ai/app/kelvin6365-plane-mcp-server)
+
 # Plane MCP Server
 
 [![smithery badge](https://smithery.ai/badge/@kelvin6365/plane-mcp-server)](https://smithery.ai/server/@kelvin6365/plane-mcp-server)
