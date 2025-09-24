@@ -23,6 +23,7 @@ startCommand:
       args: ['dist/index.js'],
       env: {
         PLANE_API_KEY: config.planeApiKey,
+        PLANE_API_URL: config.planeApiUrl,
         PLANE_WORKSPACE_SLUG: config.planeWorkspaceSlug
       }
     })

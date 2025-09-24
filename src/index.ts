@@ -14,11 +14,17 @@ dotenv.config();
 
 // Retrieve the Plane API key from environment variables
 const PLANE_API_KEY = process.env.PLANE_API_KEY;
+var PLANE_API_URL = process.env.PLANE_API_URL;
 const PLANE_WORKSPACE_SLUG = process.env.PLANE_WORKSPACE_SLUG;
 
 if (!PLANE_API_KEY) {
   console.error("Error: PLANE_API_KEY environment variable is required");
   process.exit(1);
+}
+
+if (!PLANE_API_URL) {
+  console.log("Info: PLANE_API_URL environment variable is not set, fallback to default url: https://api.plane.so/api/v1/workspaces")
+  PLANE_API_URL = "https://api.plane.so/api/v1/workspaces";
 }
 
 if (!PLANE_WORKSPACE_SLUG) {
@@ -199,7 +205,7 @@ async function callPlaneAPI(
   method: string,
   body?: any
 ): Promise<any> {
-  const baseUrl = `https://api.plane.so/api/v1/workspaces/${PLANE_WORKSPACE_SLUG}`;
+  const baseUrl = `${PLANE_API_URL}/${PLANE_WORKSPACE_SLUG}`;
   const url = `${baseUrl}${endpoint}`;
 
   const options: RequestInit = {
