@@ -193,6 +193,21 @@ const UPDATE_ISSUE_TOOL: Tool = {
   },
 };
 
+const LIST_ISSUES_STATES_TOOL: Tool = {
+  name: "list-issues-states",
+  description: "List all states for issues in a project",
+  inputSchema: {
+    type: "object",
+    properties: {
+      project_id: {
+        type: "string",
+        description: "ID of the project to get issue states from",
+      },
+    },
+    required: ["project_id"],
+  },
+}
+
 /**
  * Calls the Plane API with appropriate headers and error handling
  * @param endpoint - API endpoint to call (without base URL)
@@ -272,6 +287,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     LIST_ISSUES_TOOL,
     GET_ISSUE_TOOL,
     UPDATE_ISSUE_TOOL,
+    LIST_ISSUES_STATES_TOOL,
   ],
 }));
 
@@ -433,6 +449,21 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           content: [
             { type: "text", text: JSON.stringify(updatedIssue, null, 2) },
           ],
+          isError: false,
+        };
+      }
+
+      case "list-issues-states": {
+        if (!args || typeof args.project_id !== "string") {
+          throw new Error("Project ID is required");
+        }
+        const { project_id } = args;
+        const states = await callPlaneAPI(
+          `/projects/${project_id}/states/`,
+          "GET"
+        );
+        return {
+          content: [{ type: "text", text: JSON.stringify(states, null, 2) }],
           isError: false,
         };
       }
